@@ -29,7 +29,6 @@
       <th scope="col">Correo Electronico</th>
       <th scope="col">Fecha Nacimiento</th>
       <th scope="col">Dirección</th>
-      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -44,10 +43,12 @@
       <td>{{$item ->email}}</td>
       <td>{{$item ->fecha_nac}}</td>
       <td>{{$item ->direccion}}</td>
-      <td>
+     
+      <!--
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editUsuario{{$item->id}}">
-             Editar
+        <span class="oi oi-pencil"></span>
         </button>
+      
         <div class="modal fade" id="editUsuario{{$item->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
              <div class="modal-content">
@@ -67,7 +68,8 @@
     </div>
   </div>
 </div>
-      </td>
+-->
+     
     </tr>
     
     @empty

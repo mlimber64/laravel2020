@@ -1,7 +1,8 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUsuario">
-  Nuevo
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUsuario" with="15px">
+<span class="oi oi-plus"></span>
 </button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="createUsuario" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
