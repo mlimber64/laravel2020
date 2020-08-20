@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use App\Usuario;
 use App\TipoDocumento;
 
@@ -26,8 +29,11 @@ class UsuarioController extends Controller
     }
     public function store(Request $request)
     {
-        $documentos = TipoDocumento::all();
+        //$documentos = TipoDocumento::all();
 
+        
+
+        
         $nuevoUsuario = new Usuario;
         $nuevoUsuario->id_tipo = $request->id_tipo;
         $nuevoUsuario->nombre = $request->nombre;
@@ -39,9 +45,18 @@ class UsuarioController extends Controller
 
         $nuevoUsuario->save();
 
+        Mail::send('usuario.email',$request->all(), function($msj){
 
-        return back()->with('usuarios', Usuario::all());
-        return view('usuarios')->with('documentos',TipoDocumento::all());
-        alert()->sucess('sucess','Se registro correctamente!');
+            $msj->subject('Correo de Contacto');
+            $msj->to('mlimber64@gmail.com');
+
+        });
+
+        Session::flash('mensaje','Correo envia exitosamente');
+
+        //return back()->with('usuarios', Usuario::all());
+        return back()->with('flash', "El usuario se registro correctamente");
+        //return view('usuarios')->with('documentos',TipoDocumento::all());
+        
     }
 }

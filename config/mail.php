@@ -15,6 +15,22 @@ return [
 
     'default' => env('MAIL_MAILER', 'smtp'),
 
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+
+    'port' => env('MAIL_PORT', 465),
+
+    'from' => ['address' =>'mlimber64@gmail.com','name' =>'Limber Mendoza'],
+
+    'encryption' => 'ssl',
+
+    'username' => env('MAIL_USERNAME'),
+
+    'password' => env('MAIL_PASSWORD'),
+
+    'sendmail' => '/usr/sbin/sendmaeil -bs',
+
+    
+
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
